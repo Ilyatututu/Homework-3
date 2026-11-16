@@ -7,8 +7,18 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 
 def get_book_data(book_url: str) -> dict:
    """
-   МЕСТО ДЛЯ ДОКУМЕНТАЦИИ
-   """
+    Извлечение данных одной книги
+
+    Берет адрес страницы (book_url)
+
+    Возвращает словарь с информацией о книге:
+        'title' - название
+        'price' - цена
+        'rating' - рейтинг
+        'availability' - наличие
+        'description' - описание
+        'product_information' - полная информация
+    """
 
    # НАЧАЛО ВАШЕГО РЕШЕНИЯ
    response = requests.get(book_url)
@@ -64,7 +74,12 @@ def get_book_data(book_url: str) -> dict:
 
 def scrape_books(is_save: bool = False, max_workers: int = 10):
     """
-    МЕСТО ДЛЯ ДОКУМЕНТАЦИИ
+    Парсинг всех страниц каталога
+    
+    Берет флаг сохранения информации (is_save) и 
+    количество потоков для параллельных запросов (max_workers), нужно для ускорения
+    
+    Возвращает список словарей
     """
 
     # НАЧАЛО ВАШЕГО РЕШЕНИЯ
